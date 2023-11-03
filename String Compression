@@ -1,0 +1,51 @@
+import java.io.*;
+import java.util.*;
+
+public class Main
+{
+    public static String compression1(String str)
+    {
+        String s = str.charAt(0) + "";
+        for(int i =1; i< str.length(); i++)
+        {
+        if(str.charAt(i-1)!= str.charAt(i))
+        {
+            s = s+str.charAt(i);
+        }
+        }
+            return s; 
+        }
+    public static String compression2(String s)
+    {
+        String str = s.charAt(0)+"";
+        int count =1;
+        for(int i =1; i< s.length(); i++)
+        {
+            if(s.charAt(i)==s.charAt(i-1))
+            {
+                count++;
+            }
+            else{
+                
+                if(count>1)
+                {
+                     str = str+ count;
+                }
+                str = str + s.charAt(i);
+                count =1;
+            }
+        }
+        if(count>1)
+        {
+            str= str + count;
+        }
+        return str;
+    }
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	String s = sc.nextLine();
+	System.out.println(compression1(s));
+	System.out.println(compression2(s));
+	
+	}
+}
